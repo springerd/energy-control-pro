@@ -78,9 +78,6 @@ def simulate(
         else random.uniform(-tuning.cloud_variability, tuning.cloud_variability)
     )
     solar_w = max(0, int(tuning.solar_peak_w * daylight_factor * (1 + cloud_noise_val)))
-    if profile == PROFILE_SUNNY_DAY:
-        # Temporary capture mode: keep stable values for predictable screenshots.
-        solar_w = 2000
 
     morning_peak = 250 * math.exp(-((hour - 7.5) ** 2) / 3.0)
     evening_peak = tuning.load_evening_boost_w * math.exp(-((hour - 19.0) ** 2) / 4.5)
@@ -91,8 +88,6 @@ def simulate(
         200,
         int(tuning.load_base_w + morning_peak + evening_peak + appliance_noise_val),
     )
-    if profile == PROFILE_SUNNY_DAY:
-        load_w = 500
 
     return solar_w, load_w
 
