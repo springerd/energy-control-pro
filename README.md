@@ -1,5 +1,8 @@
 # Energy Control Pro
 
+[![Hassfest](https://github.com/springerd/energy-control-pro/actions/workflows/hassfest.yml/badge.svg)](https://github.com/springerd/energy-control-pro/actions/workflows/hassfest.yml)
+[![HACS Validation](https://github.com/springerd/energy-control-pro/actions/workflows/validate-hacs.yml/badge.svg)](https://github.com/springerd/energy-control-pro/actions/workflows/validate-hacs.yml)
+
 Stop exporting solar energy without noticing.
 
 Detect sustained solar surplus and automatically control loads to maximize self-consumption, without writing YAML automations.
