@@ -1,0 +1,13 @@
+{
+  "domain": "energy_control_pro",
+  "name": "Energy Control Pro",
+  "version": "0.1.0",
+  "documentation": "https://github.com/springerd/energy-control-pro",
+  "issue_tracker": "https://github.com/springerd/energy-control-pro/issues",
+  "config_flow": true,
+  "codeowners": [
+    "@springerd"
+  ],
+  "iot_class": "local_polling",
+  "requirements": []
+}

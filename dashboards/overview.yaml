@@ -1,0 +1,40 @@
+title: Energy Control Pro Overview
+views:
+  - title: Overview
+    path: energy-control-pro-overview
+    icon: mdi:solar-power
+    cards:
+      - type: entities
+        title: Power Snapshot
+        show_header_toggle: false
+        entities:
+          - entity: sensor.energy_control_pro_solar_w
+            name: Solar
+          - entity: sensor.energy_control_pro_load_w
+            name: Load
+          - entity: sensor.energy_control_pro_surplus_w
+            name: Surplus
+          - entity: sensor.energy_control_pro_grid_import_w
+            name: Grid Import
+          - entity: sensor.energy_control_pro_grid_export_w
+            name: Grid Export
+
+      - type: history-graph
+        title: Solar vs Load (24h)
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.energy_control_pro_solar_w
+            name: Solar
+          - entity: sensor.energy_control_pro_load_w
+            name: Load
+
+      - type: history-graph
+        title: Grid Import vs Export (24h)
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.energy_control_pro_grid_import_w
+            name: Grid Import
+          - entity: sensor.energy_control_pro_grid_export_w
+            name: Grid Export

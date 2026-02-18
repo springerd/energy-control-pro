@@ -1,0 +1,50 @@
+title: Energy Control Pro Overview
+views:
+  - title: Overview
+    path: energy-control-pro
+    icon: mdi:solar-power
+    cards:
+      - type: entities
+        title: Power Snapshot
+        show_header_toggle: false
+        entities:
+          - entity: sensor.energy_control_pro_solar_w
+            name: Solar
+          - entity: sensor.energy_control_pro_load_w
+            name: Load
+          - entity: sensor.energy_control_pro_grid_import_w
+            name: Grid Import
+          - entity: sensor.energy_control_pro_grid_export_w
+            name: Grid Export
+          - entity: sensor.energy_control_pro_surplus_w
+            name: Surplus
+
+      - type: history-graph
+        title: Power Flows (24h)
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.energy_control_pro_solar_w
+            name: Solar
+          - entity: sensor.energy_control_pro_load_w
+            name: Load
+          - entity: sensor.energy_control_pro_grid_import_w
+            name: Grid Import
+          - entity: sensor.energy_control_pro_grid_export_w
+            name: Grid Export
+
+      - type: markdown
+        title: Grid Status
+        entity_id:
+          - sensor.energy_control_pro_grid_import_w
+          - sensor.energy_control_pro_grid_export_w
+        content: >
+          {% set imp = states('sensor.energy_control_pro_grid_import_w') | int(0) %}
+          {% set exp = states('sensor.energy_control_pro_grid_export_w') | int(0) %}
+          {% if imp > 0 %}
+          **Status:** Importing from grid ({{ imp }} W)
+          {% elif exp > 0 %}
+          **Status:** Exporting to grid ({{ exp }} W)
+          {% else %}
+          **Status:** Balanced (0 W import/export)
+          {% endif %}

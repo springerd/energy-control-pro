@@ -1,0 +1,8 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"
+asyncio_mode = "auto"
+markers = [
+  "integration: integration tests requiring Home Assistant test harness",
+]

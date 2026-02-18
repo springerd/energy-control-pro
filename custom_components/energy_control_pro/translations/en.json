@@ -1,0 +1,104 @@
+{
+  "title": "Energy Control Pro",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Energy Control Pro",
+        "description": "Set simulation/profile and optional real power entities (W).",
+        "data": {
+          "simulation": "Simulation",
+          "profile": "Profile",
+          "solar_power_entity": "Solar power entity (W)",
+          "load_power_entity": "Load power entity (W)",
+          "import_threshold_w": "Import threshold (W)",
+          "export_threshold_w": "Export threshold (W)",
+          "duration_threshold_min": "Min duration before alert (min)",
+          "optimization_enabled": "Optimization mode",
+          "strategy": "Optimization strategy",
+          "load_1_entity": "Load 1 (switch entity)",
+          "load_1_min_surplus_w": "Load 1 min surplus (W)",
+          "load_1_min_on_time_min": "Load 1 min on time (min)",
+          "load_1_cooldown_min": "Load 1 cooldown (min)",
+          "load_1_priority": "Load 1 priority",
+          "load_2_entity": "Load 2 (switch entity)",
+          "load_2_min_surplus_w": "Load 2 min surplus (W)",
+          "load_2_min_on_time_min": "Load 2 min on time (min)",
+          "load_2_cooldown_min": "Load 2 cooldown (min)",
+          "load_2_priority": "Load 2 priority",
+          "load_3_entity": "Load 3 (switch entity)",
+          "load_3_min_surplus_w": "Load 3 min surplus (W)",
+          "load_3_min_on_time_min": "Load 3 min on time (min)",
+          "load_3_cooldown_min": "Load 3 cooldown (min)",
+          "load_3_priority": "Load 3 priority"
+        }
+      }
+    },
+    "error": {
+      "real_entities_required": "When simulation is disabled, select both solar and load power entities.",
+      "real_entity_not_found": "One of the selected entities does not exist.",
+      "real_entity_unavailable": "One of the selected entities is currently unavailable.",
+      "real_entity_not_numeric": "One of the selected entities does not have a numeric state.",
+      "real_entity_unit_not_w": "Selected entities must report power in W or kW."
+    },
+    "abort": {
+      "single_instance_allowed": "Only a single configuration is allowed."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Energy Control Pro Options",
+        "description": "Adjust simulation profile and simple alert thresholds.",
+        "data": {
+          "simulation": "Simulation",
+          "profile": "Profile",
+          "solar_power_entity": "Solar power entity (W)",
+          "load_power_entity": "Load power entity (W)",
+          "import_threshold_w": "Import threshold (W)",
+          "export_threshold_w": "Export threshold (W)",
+          "duration_threshold_min": "Min duration before alert (min)",
+          "optimization_enabled": "Optimization mode",
+          "strategy": "Optimization strategy",
+          "load_1_entity": "Load 1 (switch entity)",
+          "load_1_min_surplus_w": "Load 1 min surplus (W)",
+          "load_1_min_on_time_min": "Load 1 min on time (min)",
+          "load_1_cooldown_min": "Load 1 cooldown (min)",
+          "load_1_priority": "Load 1 priority",
+          "load_2_entity": "Load 2 (switch entity)",
+          "load_2_min_surplus_w": "Load 2 min surplus (W)",
+          "load_2_min_on_time_min": "Load 2 min on time (min)",
+          "load_2_cooldown_min": "Load 2 cooldown (min)",
+          "load_2_priority": "Load 2 priority",
+          "load_3_entity": "Load 3 (switch entity)",
+          "load_3_min_surplus_w": "Load 3 min surplus (W)",
+          "load_3_min_on_time_min": "Load 3 min on time (min)",
+          "load_3_cooldown_min": "Load 3 cooldown (min)",
+          "load_3_priority": "Load 3 priority"
+        }
+      }
+    },
+    "error": {
+      "real_entities_required": "When simulation is disabled, select both solar and load power entities.",
+      "real_entity_not_found": "One of the selected entities does not exist.",
+      "real_entity_unavailable": "One of the selected entities is currently unavailable.",
+      "real_entity_not_numeric": "One of the selected entities does not have a numeric state.",
+      "real_entity_unit_not_w": "Selected entities must report power in W or kW."
+    }
+  },
+  "selector": {
+    "profile": {
+      "options": {
+        "sunny_day": "Sunny day",
+        "cloudy_day": "Cloudy day",
+        "winter_day": "Winter day"
+      }
+    },
+    "strategy": {
+      "options": {
+        "maximize_self_consumption": "Maximize self-consumption",
+        "avoid_grid_import": "Avoid grid import",
+        "balanced": "Balanced"
+      }
+    }
+  }
+}

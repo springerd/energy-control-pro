@@ -1,0 +1,136 @@
+title: Energy Control Pro
+views:
+  - title: Overview
+    path: overview
+    icon: mdi:flash
+    cards:
+      # =========================
+      # 1) STATUS (Top)
+      # =========================
+      - type: markdown
+        title: Energy Status
+        content: >
+          {% set state = states('sensor.energy_state') %}
+          {% set imp = states('sensor.grid_import_power') | int(0) %}
+          {% set exp_min = states('sensor.export_duration') | int(0) %}
+          {% if state == 'exporting' %}
+          ⚡ **Status:** Exporting for {{ exp_min }} minutes
+          {% elif state == 'importing' %}
+          ⚡ **Status:** Importing {{ imp }}W
+          {% else %}
+          ⚡ **Status:** Balanced
+          {% endif %}
+
+      - type: grid
+        title: Current Status
+        columns: 3
+        square: false
+        cards:
+          - type: gauge
+            name: Solar
+            entity: sensor.solar_power
+            min: 0
+            max: 5000
+            unit: W
+
+          - type: gauge
+            name: Home Load
+            entity: sensor.load_power
+            min: 0
+            max: 5000
+            unit: W
+
+          - type: gauge
+            name: Surplus
+            entity: sensor.surplus_power
+            min: -3000
+            max: 3000
+            unit: W
+
+      # If you later add an "energy_state" text sensor, place it here:
+      # - type: entity
+      #   name: Energy State
+      #   entity: sensor.energy_state
+
+      # =========================
+      # 2) GRID FLOW
+      # =========================
+      - type: grid
+        title: Grid Flow
+        columns: 2
+        square: false
+        cards:
+          - type: gauge
+            name: Grid Import
+            entity: sensor.grid_import_power
+            min: 0
+            max: 5000
+            unit: W
+
+          - type: gauge
+            name: Grid Export
+            entity: sensor.grid_export_power
+            min: 0
+            max: 5000
+            unit: W
+
+      # =========================
+      # 3) NUMERIC SUMMARY (simple & clear)
+      # =========================
+      - type: entities
+        title: Live Metrics
+        show_header_toggle: false
+        entities:
+          - entity: sensor.energy_state
+            name: Energy State
+          - entity: sensor.export_duration
+            name: Export Duration (min)
+          - entity: sensor.import_duration
+            name: Import Duration (min)
+          - entity: sensor.solar_power
+            name: Solar Production
+          - entity: sensor.load_power
+            name: Home Load
+          - entity: sensor.grid_import_power
+            name: Importing from Grid
+          - entity: sensor.grid_export_power
+            name: Exporting to Grid
+          - entity: sensor.surplus_power
+            name: Surplus (Solar - Load)
+
+      # =========================
+      # 4) HISTORY (24h)
+      # =========================
+      - type: history-graph
+        title: Solar vs Load (24h)
+        hours_to_show: 24
+        refresh_interval: 30
+        entities:
+          - entity: sensor.solar_power
+            name: Solar
+          - entity: sensor.load_power
+            name: Load
+
+      - type: history-graph
+        title: Grid Import vs Export (24h)
+        hours_to_show: 24
+        refresh_interval: 30
+        entities:
+          - entity: sensor.grid_import_power
+            name: Import
+          - entity: sensor.grid_export_power
+            name: Export
+
+      # =========================
+      # 5) OPTIMIZATION
+      # =========================
+      - type: entities
+        title: Optimization
+        show_header_toggle: false
+        entities:
+          - entity: switch.energy_control_pro_optimization
+            name: Optimization Mode
+          - entity: select.energy_control_pro_strategy
+            name: Strategy
+          - entity: sensor.energy_control_pro_last_action
+            name: Last Action
