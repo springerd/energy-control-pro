@@ -29,6 +29,12 @@ You can monitor:
 - `switch.energy_control_pro_optimization` (ON/OFF),
 - `sensor.energy_control_pro_last_action` (latest automation decision).
 
+## Device Activation Example
+
+Example of a device being activated by the optimization flow:
+
+![Activating a device from Energy Control Pro](image.png)
+
 ## What It Does
 
 - Calculates solar/load/grid balance every 10 seconds.
@@ -157,6 +163,17 @@ Importable file:
 - `dashboards/energy_control_pro_overview.yaml`
 
 Includes power snapshot, 24h history, and grid status.
+
+## Troubleshooting
+
+- Entities not found during setup:
+  - Verify `solar_power_entity` and `load_power_entity` exist in `Developer Tools -> States`.
+- Invalid value/unit errors:
+  - Both entities must report numeric values in watts (`W`).
+- Sensors not updating:
+  - Confirm the integration entry is loaded and check `Settings -> System -> Logs` for `energy_control_pro`.
+- Optimization switch/select appears but no actions are executed:
+  - Ensure `switch.energy_control_pro_optimization` is ON and at least one load entity is configured.
 
 ## Future
 
