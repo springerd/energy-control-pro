@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2026-02-22
+
+### Added
+- Short troubleshooting section in `README.md` for common entity and unit errors.
+- Initial release process and publication checklist in `PENDIENTES.md`.
+
+### Changed
+- Updated integration manifest version to `0.1.2`.
+
 ## [0.1.1] - 2026-02-18
 
 ### Added

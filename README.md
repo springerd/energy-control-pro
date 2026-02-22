@@ -175,6 +175,20 @@ Includes power snapshot, 24h history, and grid status.
 - Optimization switch/select appears but no actions are executed:
   - Ensure `switch.energy_control_pro_optimization` is ON and at least one load entity is configured.
 
+## Versioning Policy
+
+This project follows Semantic Versioning (`MAJOR.MINOR.PATCH`):
+
+- `PATCH` (`0.1.x`): bug fixes, small internal improvements, no breaking changes.
+- `MINOR` (`0.x.0`): backward-compatible features, new entities/options, behavior extensions.
+- `MAJOR` (`x.0.0`): breaking changes in configuration, entity naming, or behavior contracts.
+
+Release process:
+
+1. Update `manifest.json` and `CHANGELOG.md`.
+2. Create and push a Git tag (for example `v0.1.2`).
+3. Publish GitHub Release notes from the changelog entry.
+
 ## Future
 
 A Pro version may be introduced in the future, but core functionality will remain open.
